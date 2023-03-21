@@ -1,0 +1,45 @@
+<h1>RNG Tables</h1>
+<h2>Roll on an RNG Table</h2>
+<p>Select a table, then roll the die to generate random ideas for your game.</p>
+<select name="" id="table">
+  <option value="trinkets">Trinkets found in Ruins</option>
+  <option value="weapons">Weapons found in Ruins</option>
+  <option value="emotions">Emotions Felt by NPC</option>
+</select>
+<button>Roll</button>
+<!--# hash[hash.keys.sample].sample => for d66, randomly selects a key within the hash, then randomly selects an item from the array.-->
+
+<div>Result:</div>
+<!--render result here -->
+
+<br/>
+
+<h2>Create an RNG Table</h2>
+<form>
+  <label for="title">RNG Table Title:</label><br>
+  <input type="text" id="title" name="title"><br>
+
+  <label for="die">Die Size:</label><br>
+  <input type="radio" id="d20" name="die" value="d20">
+  <label for="d20">d20</label><br>
+  <input type="radio" id="d66" name="die" value="d66">
+  <label for="d66">d66</label><br>
+  <input type="radio" id="d100" name="die" value="d100">
+  <label for="d100">d100</label><br>
+
+  <label for="entries">Entries:</label><br>
+<!-- Dynamically generate number of entry fields based on the die size selection-->
+</form>
+
+<h2>All Tables</h2>
+<ul>
+  <% @rng_tables.each do |rng_table| %>
+    <li>
+      <%= rng_table.name %>
+      <%= rng_table.die %>
+      <%= rng_table.created_by %>
+      <%= rng_table.likes %>
+    </li>
+  <% end %>
+</ul>
+

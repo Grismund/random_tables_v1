@@ -1,0 +1,2 @@
+class RngTable < ApplicationRecord
+end
